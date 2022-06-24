@@ -10,8 +10,8 @@
     <!-- weekRowLayout -->
     <dimen name="weekRowMinHeight">36dp</dimen>
     <dimen name="dayOfMonthTextSize">16sp</dimen>
-    <dimen name="dayOfMonthBoxSize">36dp</dimen>
-    <dimen name="dayOfMonthSize">26dp</dimen>
+    <dimen name="dayOfMonthBoxSize">40dp</dimen>
+    <dimen name="dayOfMonthSize">32dp</dimen>
     <dimen name="dayOfMonthMinWidth">40dp</dimen>
     <dimen name="dayOfMonthMinHeight">0dp</dimen>
     <dimen name="dayOfMonthPaddingBottom">0dp</dimen>
