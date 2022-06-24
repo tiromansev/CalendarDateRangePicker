@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         calendar = findViewById(R.id.cdrvCalendar);
 
-        final Typeface typeface = Typeface.createFromAsset(getAssets(), "JosefinSans-Regular.ttf");
-        calendar.setFonts(typeface);
+//        final Typeface typeface = Typeface.createFromAsset(getAssets(), "JosefinSans-Regular.ttf");
+//        calendar.setFonts(typeface);
 
         calendar.setCalendarListener(calendarListener);
 

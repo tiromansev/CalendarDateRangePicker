@@ -10,42 +10,63 @@
         android:id="@+id/tvDayOfWeek1"
         style="@style/WeekDayTitleStyle"
         android:tag="dayOfWeek1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
         android:text="@string/cdrp_sun" />
 
     <com.archit.calendardaterangepicker.customviews.CustomTextView
         android:id="@+id/tvDayOfWeek2"
         style="@style/WeekDayTitleStyle"
         android:tag="dayOfWeek2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
         android:text="@string/cdrp_mon" />
 
     <com.archit.calendardaterangepicker.customviews.CustomTextView
         android:id="@+id/tvDayOfWeek3"
         style="@style/WeekDayTitleStyle"
         android:tag="dayOfWeek3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
         android:text="@string/cdrp_tue" />
 
     <com.archit.calendardaterangepicker.customviews.CustomTextView
         android:id="@+id/tvDayOfWeek4"
         style="@style/WeekDayTitleStyle"
         android:tag="dayOfWeek4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
         android:text="@string/cdrp_wed" />
 
     <com.archit.calendardaterangepicker.customviews.CustomTextView
         android:id="@+id/tvDayOfWeek5"
         style="@style/WeekDayTitleStyle"
         android:tag="dayOfWeek5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
         android:text="@string/cdrp_thu" />
 
     <com.archit.calendardaterangepicker.customviews.CustomTextView
         android:id="@+id/tvDayOfWeek6"
         style="@style/WeekDayTitleStyle"
         android:tag="dayOfWeek6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
         android:text="@string/cdrp_fri" />
 
     <com.archit.calendardaterangepicker.customviews.CustomTextView
         android:id="@+id/tvDayOfWeek7"
         style="@style/WeekDayTitleStyle"
         android:tag="dayOfWeek7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
         android:text="@string/cdrp_sat" />
 
 </LinearLayout>
