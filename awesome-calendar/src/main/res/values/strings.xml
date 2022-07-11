@@ -17,6 +17,16 @@
         <item>@string/cdrp_sat</item>
     </string-array>
 
+    <string-array name="week_mon">
+        <item>@string/cdrp_mon</item>
+        <item>@string/cdrp_tue</item>
+        <item>@string/cdrp_wed</item>
+        <item>@string/cdrp_thu</item>
+        <item>@string/cdrp_fri</item>
+        <item>@string/cdrp_sat</item>
+        <item>@string/cdrp_sun</item>
+    </string-array>
+
     <string name="cancel">Cancel</string>
     <string name="done">Done</string>
     <string name="title_time_picker">Select Time</string>

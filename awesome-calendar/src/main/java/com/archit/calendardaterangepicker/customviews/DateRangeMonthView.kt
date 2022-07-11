@@ -33,7 +33,7 @@ import com.archit.calendardaterangepicker.models.CalendarStyleAttributes.DateSel
 import com.archit.calendardaterangepicker.models.CalendarStyleAttributes.DateSelectionMode.SINGLE
 import com.archit.calendardaterangepicker.timepicker.AwesomeTimePickerDialog
 import com.archit.calendardaterangepicker.timepicker.AwesomeTimePickerDialog.TimePickerCallback
-import java.util.Calendar
+import java.util.*
 
 /**
  * Created by archit.shah on 08/09/2017.
@@ -181,7 +181,15 @@ internal class DateRangeMonthView : LinearLayout {
         currentCalendarMonth = month.clone() as Calendar
         currentCalendarMonth[Calendar.DATE] = 1
         resetTime(currentCalendarMonth, NONE)
-        val weekTitle = context.resources.getStringArray(array.week_sun_sat)
+        var locale = Locale.getDefault();
+
+        var calendar = Calendar.getInstance(locale)
+        var weekTitle = context.resources.getStringArray(array.week_sun_sat)
+        var offset = 0
+        if (calendar.firstDayOfWeek == 2) {
+            weekTitle = context.resources.getStringArray(array.week_mon)
+            offset = 1
+        }
 
         //To set week day title as per offset
         for (i in 0..6) {
@@ -195,7 +203,8 @@ internal class DateRangeMonthView : LinearLayout {
         if (startDay < 1) {
             startDay = startDay + 7
         }
-        month.add(Calendar.DATE, -startDay + 1)
+        Log.d("day_offset_log", "weekOffset = " + calendarStyleAttr.weekOffset + " startDay = " + startDay);
+        month.add(Calendar.DATE, -startDay + 1 + offset)
         for (i in 0 until llDaysContainer.childCount) {
             val weekRow = llDaysContainer.getChildAt(i) as LinearLayout
             for (j in 0..6) {

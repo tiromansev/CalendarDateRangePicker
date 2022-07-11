@@ -17,8 +17,7 @@ import com.archit.calendardaterangepicker.R.layout
 import com.archit.calendardaterangepicker.models.CalendarStyleAttrImpl
 import com.archit.calendardaterangepicker.models.CalendarStyleAttributes
 import java.text.DateFormatSymbols
-import java.util.Calendar
-import java.util.Locale
+import java.util.*
 
 class DateRangeCalendarView : LinearLayout, DateRangeCalendarViewApi {
     private lateinit var tvYearTitle: CustomTextView
@@ -43,7 +42,7 @@ class DateRangeCalendarView : LinearLayout, DateRangeCalendarViewApi {
     }
 
     private fun initViews(context: Context, attrs: AttributeSet?) {
-        locale = context.resources.configuration.locale
+        locale = Locale.getDefault()
         calendarStyleAttr = CalendarStyleAttrImpl(context, attrs)
         val layoutInflater = LayoutInflater.from(context)
         layoutInflater.inflate(layout.layout_calendar_container, this, true)
