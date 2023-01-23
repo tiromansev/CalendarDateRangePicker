@@ -10,27 +10,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import com.archit.calendardaterangepicker.R
-import com.archit.calendardaterangepicker.R.array
-import com.archit.calendardaterangepicker.R.layout
-import com.archit.calendardaterangepicker.R.string
-import com.archit.calendardaterangepicker.customviews.CalendarDateRangeManager.DateSelectionState.IN_SELECTED_RANGE
-import com.archit.calendardaterangepicker.customviews.CalendarDateRangeManager.DateSelectionState.LAST_DATE
-import com.archit.calendardaterangepicker.customviews.CalendarDateRangeManager.DateSelectionState.START_DATE
+import com.archit.calendardaterangepicker.R.*
+import com.archit.calendardaterangepicker.customviews.CalendarDateRangeManager.DateSelectionState.*
 import com.archit.calendardaterangepicker.customviews.CalendarDateRangeManager.DateSelectionState.START_END_SAME
 import com.archit.calendardaterangepicker.customviews.DateTiming.NONE
 import com.archit.calendardaterangepicker.customviews.DateView.Companion.getContainerKey
 import com.archit.calendardaterangepicker.customviews.DateView.DateState
-import com.archit.calendardaterangepicker.customviews.DateView.DateState.DISABLE
-import com.archit.calendardaterangepicker.customviews.DateView.DateState.END
-import com.archit.calendardaterangepicker.customviews.DateView.DateState.HIDDEN
-import com.archit.calendardaterangepicker.customviews.DateView.DateState.MIDDLE
-import com.archit.calendardaterangepicker.customviews.DateView.DateState.SELECTABLE
-import com.archit.calendardaterangepicker.customviews.DateView.DateState.START
+import com.archit.calendardaterangepicker.customviews.DateView.DateState.*
 import com.archit.calendardaterangepicker.customviews.DateView.OnDateClickListener
 import com.archit.calendardaterangepicker.models.CalendarStyleAttributes
-import com.archit.calendardaterangepicker.models.CalendarStyleAttributes.DateSelectionMode.FIXED_RANGE
-import com.archit.calendardaterangepicker.models.CalendarStyleAttributes.DateSelectionMode.FREE_RANGE
-import com.archit.calendardaterangepicker.models.CalendarStyleAttributes.DateSelectionMode.SINGLE
+import com.archit.calendardaterangepicker.models.CalendarStyleAttributes.DateSelectionMode.*
 import com.archit.calendardaterangepicker.timepicker.AwesomeTimePickerDialog
 import com.archit.calendardaterangepicker.timepicker.AwesomeTimePickerDialog.TimePickerCallback
 import java.util.*
@@ -181,15 +170,7 @@ internal class DateRangeMonthView : LinearLayout {
         currentCalendarMonth = month.clone() as Calendar
         currentCalendarMonth[Calendar.DATE] = 1
         resetTime(currentCalendarMonth, NONE)
-        var locale = Locale.getDefault();
-
-        var calendar = Calendar.getInstance(locale)
         var weekTitle = context.resources.getStringArray(array.week_sun_sat)
-        var offset = 0
-        if (calendar.firstDayOfWeek == 2) {
-            weekTitle = context.resources.getStringArray(array.week_mon)
-            offset = 1
-        }
 
         //To set week day title as per offset
         for (i in 0..6) {
@@ -198,16 +179,21 @@ internal class DateRangeMonthView : LinearLayout {
             textView.text = weekStr
         }
         var startDay = month[Calendar.DAY_OF_WEEK] - calendarStyleAttr.weekOffset
+        Log.d("day_offset_log", "day of week = " + month[Calendar.DAY_OF_WEEK]);
 
         //To rotate week day according to offset
         if (startDay < 1) {
             startDay = startDay + 7
         }
         Log.d("day_offset_log", "weekOffset = " + calendarStyleAttr.weekOffset + " startDay = " + startDay);
-        month.add(Calendar.DATE, -startDay + 1 + offset)
+        month.add(Calendar.DATE, -startDay + 1)
         for (i in 0 until llDaysContainer.childCount) {
             val weekRow = llDaysContainer.getChildAt(i) as LinearLayout
             for (j in 0..6) {
+                Log.d("day_offset_log",
+                        "year = " + month.get(Calendar.YEAR) +
+                        " month = " + month.get(Calendar.MONTH) +
+                                " day = " + month.get(Calendar.DAY_OF_MONTH));
                 val customDateView = weekRow.getChildAt(j) as CustomDateView
                 drawDayContainer(customDateView, month)
                 month.add(Calendar.DATE, 1)

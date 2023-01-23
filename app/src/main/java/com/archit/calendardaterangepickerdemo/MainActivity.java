@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
 //        calendar.setNavRightImage(ContextCompat.getDrawable(this,R.drawable.ic_right));
 
         final Calendar startMonth = Calendar.getInstance();
-//        startMonth.set(2019, Calendar.DECEMBER, 20);
+        startMonth.add(Calendar.MONTH, -25);
         final Calendar endMonth = (Calendar) startMonth.clone();
-        endMonth.add(Calendar.MONTH, 5);
+        endMonth.add(Calendar.MONTH, 25);
         Log.d(TAG, "Start month: " + startMonth.getTime().toString() + " :: End month: " + endMonth.getTime().toString());
         calendar.setVisibleMonthRange(startMonth, endMonth);
 

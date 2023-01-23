@@ -10,6 +10,7 @@ import com.archit.calendardaterangepicker.models.CalendarStyleAttributes.Compani
 import com.archit.calendardaterangepicker.models.CalendarStyleAttributes.DateSelectionMode
 import com.archit.calendardaterangepicker.models.CalendarStyleAttributes.DateSelectionMode.FIXED_RANGE
 import com.archit.calendardaterangepicker.models.CalendarStyleAttributes.DateSelectionMode.FREE_RANGE
+import java.util.*
 
 class CalendarStyleAttrImpl(context: Context, attributeSet: AttributeSet? = null) : CalendarStyleAttributes {
     override var fonts: Typeface? = null
@@ -86,7 +87,7 @@ class CalendarStyleAttrImpl(context: Context, attributeSet: AttributeSet? = null
                 defaultDateColor = ta.getColor(R.styleable.DateRangeMonthView_default_date_color, defaultDateColor)
                 rangeDateColor = ta.getColor(R.styleable.DateRangeMonthView_range_date_color, rangeDateColor)
                 disableDateColor = ta.getColor(R.styleable.DateRangeMonthView_disable_date_color, disableDateColor)
-                weekOffset = ta.getColor(R.styleable.DateRangeMonthView_week_offset, 0)
+                weekOffset = Calendar.getInstance(Locale.getDefault()).firstDayOfWeek - 1
                 dateSelectionMode = DateSelectionMode.values()[ta.getInt(R.styleable.DateRangeMonthView_date_selection_mode, 0)]
             } finally {
                 ta.recycle()
